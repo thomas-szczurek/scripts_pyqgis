@@ -1,3 +1,7 @@
+-- Créé un trigger et la fonction associée permettant d'assurer une contrainte d'intégrité
+-- s'assurant qu'à la création ou modification d'un enregistrement de t1, sa géométrie se 
+-- situe dans la géométrie de t2.
+
 CREATE OR REPLACE FUNCTION check_within_polygon()
 RETURNS TRIGGER AS $$
 BEGIN
