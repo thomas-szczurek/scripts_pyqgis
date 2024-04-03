@@ -19,8 +19,6 @@ def layer_to_gdf(layer_name, crs):
     gdf = gpd.GeoDataFrame(df, geometry=gs, crs=crs)
     return gdf
 
-# str(type(df.loc[0,'DATE_MAJ'])) == "<class 'PyQt5.QtCore.QDateTime'>"
-
 # Nom de la couche à geopandaiser
 layer_name = 'surface_z13'
 # srid de la projection de la couche
