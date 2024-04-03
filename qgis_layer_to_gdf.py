@@ -1,5 +1,7 @@
 # -*- coding:Utf8 -*-
 
+# Fonctions permettant de charger une couche qgis comme Geodataframe dans l'interpreteur de Qgis et inversement
+
 import pandas as pd
 import geopandas as gpd
 
@@ -19,8 +21,13 @@ def layer_to_gdf(layer_name, crs):
     gdf = gpd.GeoDataFrame(df, geometry=gs, crs=crs)
     return gdf
 
+def gdf_to_layer(gdf_name):
+    vl = QgsVectorLayer(gdf_name.to_json(),"test","ogr")
+    QgsProject.instance().addMapLayer(vl)
+
 # Nom de la couche à geopandaiser
 layer_name = 'surface_z13'
 # srid de la projection de la couche
 crs = 2154
 my_gdf = layer_to_gdf(layer_name, crs)
+gdf_to_layer(gdf_name)
