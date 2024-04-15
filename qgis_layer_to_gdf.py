@@ -22,8 +22,9 @@ def layer_to_gdf(layer_name, crs):
     return gdf
 
 def gdf_to_layer(gdf_name):
-    vl = QgsVectorLayer(gdf_name.to_json(),"test","ogr")
-    QgsProject.instance().addMapLayer(vl)
+    vlayer = QgsVectorLayer(gdf_name.to_json(),"test","ogr")
+    QgsProject.instance().addMapLayer(vlayer)
+    return vlayer
 
 # Nom de la couche à geopandaiser
 layer_name = 'surface_z13'
